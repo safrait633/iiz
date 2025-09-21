@@ -1,0 +1,164 @@
+/* Сброс стилей и базовые настройки */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root {
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+/* Кастомный скроллбар */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Общие утилиты */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Dark Liquid Glass Theme */
+:root {
+  color-scheme: dark;
+  --bg-gradient: radial-gradient(1200px 600px at 10% -10%, rgba(62,84,172,0.28), transparent),
+                 radial-gradient(1000px 500px at 100% 0%, rgba(145, 54, 226, 0.2), transparent),
+                 linear-gradient(135deg, #0b1220 0%, #0e1424 100%);
+  --panel-glass: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+  --panel-border: 1px solid rgba(255,255,255,0.08);
+  --text-primary: #e6e9f2;
+  --text-secondary: #a6adbb;
+  --accent: #7aa2f7;
+  --accent-2: #a78bfa;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text-primary);
+}
+
+/* Панели */
+.app-header, .settings-panel, .workflow-progress, .result-viewer, .html-analyzer, .dropzone {
+  background: var(--panel-glass);
+  border: var(--panel-border);
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 20px 60px rgba(0,0,0,0.35);
+  backdrop-filter: blur(18px) saturate(130%);
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+}
+
+.app-header h1 {
+  background: linear-gradient(90deg, #c7d2fe, #a78bfa);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.app-header p { color: var(--text-secondary); }
+
+/* Кнопки */
+button, .copy-btn, .accept-btn, .revise-btn, .send-revision-btn, .clear-results-btn, .analyze-btn, .clear-btn {
+  color: var(--text-primary);
+  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+}
+
+button:hover, .copy-btn:hover, .accept-btn:hover, .revise-btn:hover, .send-revision-btn:hover, .clear-results-btn:hover, .analyze-btn:hover, .clear-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,0.16);
+}
+
+/* Inputs */
+.textarea-container textarea, .api-key-input input, .feedback-section textarea {
+  background: rgba(255,255,255,0.06);
+  color: var(--text-primary);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.textarea-container textarea:focus, .api-key-input input:focus, .feedback-section textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(122,162,247,0.15);
+}
+
+/* Dropzone dark tune */
+.dz-title { color: var(--text-primary); }
+.dz-subtitle { color: var(--text-secondary); }
+.dz-fileinfo { color: var(--text-primary); }
+.dz-error { color: #ef4444; }
+
+/* ResultViewer dark adjustments */
+.response-text { background: rgba(255,255,255,0.05); border-left-color: var(--accent); }
+.timestamp { color: var(--text-secondary); }
